@@ -1,14 +1,13 @@
-const log = console.log.bind()
-
+const log = console.log.bind();
 
 // const regexp = /шаблон/
 // regexp = /шаблон/gmi
 
-var text = "Меня зовут Mercedes, мне 17 лет"
-log(text.match(/\d+/g))
+var text = "Меня зовут Mercedes, мне 17 лет";
+log(text.match(/\d+/g));
 
 // \d - цифры 0-9
-// + - одна или больше 
+// + - одна или больше
 // g - все совпадения
 
 // const text2 = "Меня зовут Араб, мне 17 лет"
@@ -17,11 +16,11 @@ log(text.match(/\d+/g))
 // const text3 = "Меня зовут АЛЕКС, мне 30 лет, у меня есть Mercedes S500"
 // log(text3.match(/S\d+/g))
 
-var text = "Меня зовут АЛЕКС, мне 30 лет.У меня есть Mercedes S500"
-log(text.match(/\d+/g))
+var text = "Меня зовут АЛЕКС, мне 30 лет.У меня есть Mercedes S500";
+log(text.match(/\d+/g));
 
-var text = "Меня зовут АЛЕКС, мне 30 лет.У меня есть Mercedes S500"
-log(text.match(/[А-ЯЁ][а-яё]+/g))
+var text = "Меня зовут АЛЕКС, мне 30 лет.У меня есть Mercedes S500";
+log(text.match(/[А-ЯЁ][а-яё]+/g));
 
 // Методы регулярных выражений
 // test() - ищет совпадение и возвращает true / false
@@ -52,7 +51,7 @@ y - Режим поиска на конкретной позиции
     заданной позиции, флаг "y")
 */
 
-log("maga hello Maga".match(/Maga/gi))
+log("maga hello Maga".match(/Maga/gi));
 
 // Основные символы
 // Классы символов
@@ -68,7 +67,7 @@ log("maga hello Maga".match(/Maga/gi))
 /**
  * + - один и больше
  * * - ноль и больше
- * ? - ноль и один 
+ * ? - ноль и один
  * {3} - ровно 3
  * {2 , 5} - от 2 до 5
  * {2, } - 2 и больше
@@ -85,36 +84,64 @@ log("maga hello Maga".match(/Maga/gi))
  * [abc] - Любой из символов a,b,c
  * [^abc] - Любые символы кромме a,b,c
  * [a-z] - Диапозон
- * */ 
+ * */
 
-log(/\d+/.test('123'))
-log(/\d+/.test('Маге 28 лет'))
-log(/\w+/.test('Маге 28 лет'))
-log(/\s+/.test('Маге 28 лет'))
+log(/\d+/.test("123"));
+log(/\d+/.test("Маге 28 лет"));
+log(/\w+/.test("Маге 28 лет"));
+log(/\s+/.test("Маге 28 лет"));
 
-const email = /^[\w.-]+@[\w.-]+\.\w{2,}$/
+const email = /^[\w.-]+@[\w.-]+\.\w{2,}$/;
 
-log(email.test("test@gmail.com"))
+log(email.test("test@gmail.com"));
 
-const phone = /^\+?\d{11}$/
-log(phone.test("+79280000000"))
+const phone = /^\+?\d{11}$/;
+log(phone.test("+79280000000"));
 
-const word = /^[А-Яа-я]+$/
-log(word.test("Привет"))
+const word = /^[А-Яа-я]+$/;
+log(word.test("Привет"));
 
 // Экранирование спецсимволов
 
-const specChar = /\./
-log(specChar.test("Maga.Changan"))
+const specChar = /\./;
+log(specChar.test("Maga.Changan"));
 
-const specChar2 = /\+/
-log(specChar2.test("Maga+Changan"))
+const specChar2 = /\+/;
+log(specChar2.test("Maga+Changan"));
 
-var str = /100$/
-log(str.test("ТЕСТ $100"))
+var str = /100$/;
+log(str.test("ТЕСТ $100"));
 
-var str = "abc"
-log(str.search(/b/))
+var str = "abc";
+log(str.search(/b/));
 
-var str = "Hello World Test"
-log(str.replace(/Test/, 'HR'))
+var str = "Hello World Test";
+log(str.replace(/Test/, "HR"));
+
+var str = /JavaScript/i;
+log(str.test("I Love JavaScript"));
+
+log("I Love JavaScript".match(/JavaScript/i));
+log("I Love JavaScript".replace(/Javascript/i, "Python"));
+
+var str = /\d+/g;
+log(str.test("123456"));
+log("123456".match(/\d/g));
+
+var str = /\./;
+log(str.test("Я люблю. Paris"));
+
+var str = /\d/g;
+log(str.test("У меня 2 яблока, 10 груш и 150 рублей"));
+log("У меня 2 яблока, 10 груш и 150 рублей".match(/\d+/g));
+log("Крутой день! #javascript #coding #100days".match(/\#\w+/g)); 
+var str = /^\w{6,12}$/;
+
+log(str.test("pass1234")); 
+
+// log("Это      очень      длинная      строка".replace(/\s+/ig, " ")); 
+// var str = /^8(\d{3})/
+// log(str.replace(str, "89991234567")); 
+
+var str = "89991234567";
+console.log(str.replace(/^8(\d{3})(\d{3})(\d{2})(\d{2})$/, "+7 ($1) $2-$3-$4"));
